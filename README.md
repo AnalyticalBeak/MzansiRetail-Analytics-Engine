@@ -1,11 +1,11 @@
-# 📊 Executive Retail Sales & Profitability Analysis
+# 🇿🇦 MzansiRetail Analytics Engine
 
-[![Live Interactive Dashboard](https://img.shields.io/badge/Power_BI-Interactive_Report-yellow?style=for-the-badge&logo=powerbi)](https://app.powerbi.com/view?r=eyJrIjoiOGFiY2E3MWUtY2NjNi00Y2ZkLWIxMWItYTE5MmI0NjVlZjIxIiwidCI6IjMyZWIxYjBhLWMwMmItNDBjNC04MzNiLTU4MjMxNWFiOTMzNiJ9)
+[![Live Interactive Dashboard](https://img.shields.io/badge/Power_BI-Interactive_Report-yellow?style=for-the-badge&logo=powerbi)](https://app.powerbi.com/view?r=eyJrIjoiNTk1N2ZkMjktM2NlMi00NTdiLTg3NDEtZGY1MjM2YzVlNTliIiwidCI6IjMyZWIxYjBhLWMwMmItNDBjNC04MzNiLTU4MjMxNWFiOTMzNiJ9)
 
 ## 📌 Project Overview
-This project provides an interactive presentation for upper-level executives to analyze the company’s sales process, identify the most profitable regions, and assess the sales of different categories. This presentation was created in Power BI Desktop.
+**MzansiRetail Analytics Engine** is an enterprise-grade, end-to-end data engineering portfolio project built by **AnalyticalBeak**. It showcases a professional data architecture spanning a Python automated ETL pipeline, a PostgreSQL data warehouse (`retail_analytics_db`), advanced SQL analytical views, and an executive-level Power BI report tailored to the South African retail market.
 
-👉 **[Click Here to Launch Full-Screen Interactive Power BI Report](https://app.powerbi.com/view?r=eyJrIjoiOGFiY2E3MWUtY2NjNi00Y2ZkLWIxMWItYTE5MmI0NjVlZjIxIiwidCI6IjMyZWIxYjBhLWMwMmItNDBjNC04MzNiLTU4MjMxNWFiOTMzNiJ9)**
+👉 **[Click Here to Launch Full-Screen Interactive MzansiRetail Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNTk1N2ZkMjktM2NlMi00NTdiLTg3NDEtZGY1MjM2YzVlNTliIiwidCI6IjMyZWIxYjBhLWMwMmItNDBjNC04MzNiLTU4MjMxNWFiOTMzNiJ9)**
 
 ---
 
@@ -15,15 +15,17 @@ This project provides an interactive presentation for upper-level executives to 
 
 ---
 
-## 🛠️ Data Architecture & Modeling
+## 🛠️ Data Architecture & Engineering Pipeline
 
-### 1. Data Cleaning & Transformation (Power Query)
-- Raw datasets (sales, customer, product, store) were transformed in Power Query Editor.
-- Correct data types within date/time, string, or numeric fields were applied.
-- A continuous and up-to-date M-code calendar dimension was created (`Dim_Date`) spanning 2020 through 2026.
+### 1. Python ETL & PostgreSQL Data Warehouse (`retail_analytics_db`)
+- **Python Automation (`etl_pipeline.py`):** Configured with robust authentication and mock data generation to seed relational tables.
+- **Star Schema Relational Tables:** Fully populated relational core featuring 6 core tables (`Transactions`, `Customers`, `Products`, `Stores`, and dynamic date/calendar dimensions).
+- **Advanced SQL Views (`analytics_views.sql`):** Engineered custom PostgreSQL analytical views:
+  - `vw_customer_rfm`: Computes Recency, Frequency, and Monetary scores to segment South African consumer behavior.
+  - `vw_store_sales_performance`: Aggregates regional performance across local storefronts and provinces (Gauteng, Western Cape, KwaZulu-Natal).
 
-### 2. Star Schema Data Model
-Designed a high-performance Star Schema data model utilizing a $1:*$ relationship strategy connecting four dimension tables to the central fact table:
+### 2. Star Schema Data Model (Power BI Desktop)
+High-performance Star Schema data model utilizing a $1:*$ relationship strategy connecting dimension tables to the central fact table:
 - `Transactions` (Fact Table)
 - `Customers` (Dimension Table via `CustomerID`)
 - `Products` (Dimension Table via `ProductID`)
